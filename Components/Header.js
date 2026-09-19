@@ -39,7 +39,7 @@ const Header = () => {
                     <Link href="/">
                         <div className="w-16 h-16 rounded-full overflow-hidden cursor-pointer">
                             <Image
-                                src="/images/res1.JFIF"
+                                src="/images/res1.jpg"
                                 alt="Logo"
                                 width={80}
                                 height={80}
