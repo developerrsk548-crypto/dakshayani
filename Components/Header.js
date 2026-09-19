@@ -105,7 +105,7 @@ const Header = () => {
                     <Link href="/">
                         <div className="w-16 h-16 rounded-full overflow-hidden cursor-pointer">
                             <Image
-                                src="/images/res1.JFIF"
+                                src="/images/res1.jpg"
                                 alt="Logo"
                                 width={80}
                                 height={80}
@@ -148,7 +148,7 @@ const Header = () => {
                 {/* Mobile Action Button */}
                 <div className="mt-8">
                     <a
-                        href="#"
+                        href="/contact"
                         onClick={() => setIsOpen(false)}
                         className="inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 rounded-full bg-[#8B1E1B] text-white font-bold text-lg transition-colors duration-300 hover:bg-red-700"
                     >
