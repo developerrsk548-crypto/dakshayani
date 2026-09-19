@@ -31,6 +31,7 @@ const Header = () => {
         }
         return pathname.startsWith(href);
     };
+    console.log("hello")
 
     return (
         <header className="bg-[#f8f8f8] text-black relative">
