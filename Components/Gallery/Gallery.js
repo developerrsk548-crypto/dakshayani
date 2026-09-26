@@ -9,9 +9,9 @@ const galleryImages = [
     {
         id: 1,
         category: 'Food',
-        alt: 'Mysore Masala Dosa',
+        alt: 'Butter Masala Dosa',
         ratio: '3 / 4',
-        image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Home_Food/butter_masala_dosa.jpg'
     },
     {
         id: 2,
@@ -23,16 +23,16 @@ const galleryImages = [
     {
         id: 3,
         category: 'Food',
-        alt: 'Idli sambar and chutney',
+        alt: 'Podi Thatti Idli',
         ratio: '1 / 1',
-        image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Home_Food/podi_thatti_idli.jpg'
     },
     {
         id: 4,
         category: 'Food',
-        alt: 'Slow-cooked paneer curry',
+        alt: 'Mysore Masala Dosa',
         ratio: '3 / 4',
-        image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Home_Food/mysore_masala_dosa.jpg'
     },
     {
         id: 5,
@@ -44,9 +44,9 @@ const galleryImages = [
     {
         id: 6,
         category: 'Food',
-        alt: 'Veg biryani served hot',
+        alt: 'Medu Vada',
         ratio: '1 / 1',
-        image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Home_Food/medu_vada.jpg'
     },
     {
         id: 7,
@@ -58,16 +58,16 @@ const galleryImages = [
     {
         id: 8,
         category: 'Food',
-        alt: 'South Indian filter coffee',
+        alt: 'Vegetable Uttapam',
         ratio: '3 / 4',
-        image: 'https://images.unsplash.com/photo-1610632380989-680fe40816c6?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Home_Food/vegitable_uttapam.jpg'
     },
     {
         id: 9,
         category: 'Food',
-        alt: 'Table spread with thali',
+        alt: 'Idli Masala Chaat',
         ratio: '1 / 1',
-        image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Home_Food/idli_masala_chhat.avif'
     },
     {
         id: 10,
@@ -79,16 +79,16 @@ const galleryImages = [
     {
         id: 11,
         category: 'Food',
-        alt: 'Freshly made naan and curry',
+        alt: 'Jini Dosa',
         ratio: '3 / 4',
-        image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Home_Food/jini_dosa.avif'
     },
     {
         id: 12,
         category: 'Food',
-        alt: 'Saffron dessert',
+        alt: 'Steamed Idli',
         ratio: '9 / 16',
-        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Home_Food/steam_idli.jpg'
     }
 ];
 

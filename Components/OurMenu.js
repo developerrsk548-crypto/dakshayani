@@ -14,133 +14,111 @@ const OurMenu = () => {
 
   const categories = [
     'All',
-    'Starters',
-    'Main Course',
-    'Clay Pot Special',
-    'Breads & Rice',
-    'Desserts',
+    'Dosa',
+    'Idli & Vada',
+    'Uttapam',
+    'Veg Curry',
+    'Evening Snacks',
+    'Biryani & Rice',
+    'Combos',
+    'Breads',
+    'Dessert',
     'Beverages'
   ];
 
+  // Local images from /public/images/Food/ — used as fallback per category
+  const IMG = {
+    dosa: '/images/Food/dosa2.jpeg',
+    idli: '/images/Food/idli1.jpeg',
+    vada: '/images/Food/dal_vada.jpeg',
+    curry: '/images/Food/sadhya.jpeg',
+    snack: '/images/Food/pakodi.jpeg',
+    biryani: '/images/Food/biryani.jpeg',
+    combo: '/images/Food/idli_dosa.jpeg',
+    bread: '/images/Food/parotta.jpeg',
+    dessert: '/images/Food/kheer.jpeg',
+    drink: '/images/Food/filter_coffee.jpeg'
+  };
+
   const menuItems = [
-    {
-      id: 1,
-      name: 'Dakshayani Royal Thali',
-      category: 'Main Course',
-      price: 380,
-      rating: 4.9,
-      isVeg: true,
-      isChefSpecial: true,
-      isPopular: true,
-      isSpicy: false,
-      description: 'A grand feast featuring Paneer Butter Masala, Dal Makhani, Mix Veg, Naan, Rice, Gulab Jamun & Raita.',
-      image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      id: 2,
-      name: 'Mysore Masala Dosa',
-      category: 'Dosa & Tiffins',
-      price: 160,
-      rating: 4.9,
-      isVeg: true,
-      isChefSpecial: true,
-      isPopular: true,
-      isSpicy: true,
-      description: 'Crispy fermented rice crepe with spicy red chutney, stuffed with a soft masala potato filling.',
-      image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      id: 3,
-      name: 'Paneer Tikka Charcoal Grill',
-      category: 'Starters',
-      price: 240,
-      rating: 4.7,
-      isVeg: true,
-      isChefSpecial: false,
-      isPopular: true,
-      isSpicy: true,
-      description: 'Marinated cottage cheese marinated in yogurt and spices, grilled over live charcoal to perfection.',
-      image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      id: 4,
-      name: 'Soft Idli Sambar',
-      category: 'Dosa & Tiffins',
-      price: 120,
-      rating: 4.8,
-      isVeg: true,
-      isChefSpecial: false,
-      isPopular: true,
-      isSpicy: false,
-      description: 'Steamed rice cakes served with piping hot lentil sambar and fresh coconut chutney.',
-      image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      id: 5,
-      name: 'Chettinad Veg Biryani',
-      category: 'Main Course',
-      price: 260,
-      rating: 4.9,
-      isVeg: true,
-      isChefSpecial: true,
-      isPopular: true,
-      isSpicy: true,
-      description: 'Fragrant basmati rice slow-cooked with mixed vegetables and a signature South Indian spice blend.',
-      image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      id: 6,
-      name: 'Crispy Medu Vada',
-      category: 'Starters',
-      price: 110,
-      rating: 4.6,
-      isVeg: true,
-      isChefSpecial: false,
-      isPopular: false,
-      isSpicy: false,
-      description: 'Golden, crunchy lentil doughnuts, deep fried and served with sambar and chutney.',
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      id: 7,
-      name: 'Garlic Butter Naan',
-      category: 'Breads & Rice',
-      price: 60,
-      rating: 4.8,
-      isVeg: true,
-      isChefSpecial: false,
-      isPopular: true,
-      isSpicy: false,
-      description: 'Refined flour leavened bread cooked in clay tandoor and brushed generously with garlic butter.',
-      image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      id: 8,
-      name: 'Rava Kesari',
-      category: 'Desserts',
-      price: 110,
-      rating: 4.9,
-      isVeg: true,
-      isChefSpecial: true,
-      isPopular: false,
-      isSpicy: false,
-      description: 'Warm semolina pudding infused with saffron, ghee, cardamom and roasted cashews.',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      id: 9,
-      name: 'South Indian Filter Coffee',
-      category: 'Beverages',
-      price: 70,
-      rating: 4.9,
-      isVeg: true,
-      isChefSpecial: false,
-      isPopular: true,
-      isSpicy: false,
-      description: 'Strong, frothy decoction coffee brewed the traditional way and served in a classic steel tumbler.',
-      image: 'https://images.unsplash.com/photo-1610632380989-680fe40816c6?auto=format&fit=crop&w=600&q=80'
-    }
-];
+    // ---------- DOSA ----------
+    { id: 1, name: 'Plain Dosa', category: 'Dosa', price: 129, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Thin, crispy South Indian crepe made from fermented rice and urad dal batter, served with chutney and sambar.', image: '/images/Food/dosa2.jpeg' },
+    { id: 2, name: 'Paper Plain Dosa', category: 'Dosa', price: 139, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'An ultra-thin, extra-crispy version of the classic dosa, fermented and griddled to a delicate crunch.', image: '/images/Food/dosa3.jpeg' },
+    { id: 3, name: 'Masala Dosa', category: 'Dosa', price: 159, rating: 4.8, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Golden dosa filled with a soft, spiced potato masala, served with chutney and sambar.', image: '/images/Food/dosa4.jpeg' },
+    { id: 4, name: 'Mysore Masala Dosa', category: 'Dosa', price: 189, rating: 4.9, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: true, description: 'Crispy dosa layered with a fiery red garlic chutney and stuffed with spiced potato filling.', image: '/images/Food/dosa2.jpeg' },
+    { id: 5, name: 'Ghee Roast Dosa', category: 'Dosa', price: 189, rating: 4.8, isVeg: true, isChefSpecial: true, isPopular: false, isSpicy: false, description: 'Fermented batter roasted on a hot tawa and finished with a generous drizzle of ghee for a golden crunch.', image: '/images/Food/dosa3.jpeg' },
+    { id: 6, name: 'Karnataka Special Benne Masala Dosa', category: 'Dosa', price: 199, rating: 4.9, isVeg: true, isChefSpecial: true, isPopular: true, isSpicy: false, description: 'Our signature butter dosa from Karnataka, indulgently rich and stuffed with spiced potato masala.', image: '/images/Food/dosa4.jpeg' },
+    { id: 7, name: 'Paneer Dosa', category: 'Dosa', price: 199, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Crispy dosa filled with a mildly spiced cottage cheese filling.', image: '/images/Food/dosa2.jpeg' },
+    { id: 8, name: 'Rava Masala Dosa', category: 'Dosa', price: 199, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Light, lacy semolina dosa, crisp at the edges and stuffed with classic potato masala.', image: '/images/Food/dosa3.jpeg' },
+    { id: 9, name: 'Jini Dosa', category: 'Dosa', price: 249, rating: 4.8, isVeg: true, isChefSpecial: true, isPopular: false, isSpicy: false, description: "A loaded crepe piled with butter, vegetables, cheese and Schezwan sauce — part dosa, part indulgence.", image: '/images/Food/dosa_roll.jpeg' },
+
+    // ---------- IDLI & VADA ----------
+    { id: 10, name: 'Steamed Idli (2 pcs)', category: 'Idli & Vada', price: 99, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Soft, pillowy steamed rice cakes served with coconut chutney and sambar.', image: '/images/Food/idli1.jpeg' },
+    { id: 11, name: 'Medu Vada (2 pcs)', category: 'Idli & Vada', price: 119, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Crispy, golden lentil fritters with a soft centre, served with chutney and sambar.', image: '/images/Food/dal_vada.jpeg' },
+    { id: 12, name: 'Podi Thatti Idli', category: 'Idli & Vada', price: 149, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'A Karnataka-style plate-sized steamed rice cake topped with spiced lentil powder and melted ghee.', image: '/images/Food/idli3.jpeg' },
+    { id: 13, name: 'Rava Idli', category: 'Idli & Vada', price: 129, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Soft steamed semolina idlis, made without any raw rice.', image: '/images/Food/idli4.jpeg' },
+    { id: 14, name: 'Dahi Idli Chaat', category: 'Idli & Vada', price: 149, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: false, description: 'Steamed idlis soaked in sweetened yogurt, topped with tangy tamarind and green chutneys and crunchy sev.', image: '/images/Food/idli1.jpeg' },
+    { id: 15, name: 'Fried Idli Masala Chaat', category: 'Idli & Vada', price: 159, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: true, description: 'Crisp fried idlis tossed with onions, curry leaves and spices, finished with tangy chutneys.', image: '/images/Food/sambar_vada.jpeg' },
+
+    // ---------- UTTAPAM ----------
+    { id: 16, name: 'Onion Uttapam', category: 'Uttapam', price: 159, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'A thick, savoury rice-and-lentil pancake topped generously with chopped onions.', image: '/images/Food/uttapam.jpeg' },
+    { id: 17, name: 'Mix Vegetable Uttapam', category: 'Uttapam', price: 199, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Soft uttapam loaded with a colourful mix of fresh vegetables.', image: '/images/Food/uttapam.jpeg' },
+    { id: 18, name: 'Paneer Uttapam', category: 'Uttapam', price: 219, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'A hearty uttapam topped with soft cottage cheese.', image: '/images/Food/uttapam.jpeg' },
+
+    // ---------- VEG CURRY ----------
+    { id: 19, name: 'Paneer Butter Masala', category: 'Veg Curry', price: 249, rating: 4.9, isVeg: true, isChefSpecial: true, isPopular: true, isSpicy: false, description: 'Cottage cheese simmered in a rich, buttery tomato gravy — a comfort-food classic.', image: '/images/Food/sadhya.jpeg' },
+    { id: 20, name: 'Dal Makhani', category: 'Veg Curry', price: 199, rating: 4.8, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: false, description: 'Black lentils slow-cooked overnight with butter and cream for a deeply rich finish.', image: '/images/Food/cuisine1.jpeg' },
+    { id: 21, name: 'Kadai Paneer', category: 'Veg Curry', price: 249, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: true, description: 'Cottage cheese and peppers tossed in a bold, freshly ground kadai masala.', image: '/images/Food/sadhya.jpeg' },
+    { id: 22, name: 'Malai Kofta', category: 'Veg Curry', price: 199, rating: 4.8, isVeg: true, isChefSpecial: true, isPopular: false, isSpicy: false, description: 'Delicate vegetable and paneer dumplings simmered in a creamy, mildly sweet gravy.', image: '/images/Food/cuisine1.jpeg' },
+    { id: 23, name: 'Chana Masala', category: 'Veg Curry', price: 149, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: true, description: 'Chickpeas simmered in a tangy, spiced onion-tomato masala.', image: '/images/Food/chola.jpeg' },
+    { id: 24, name: 'Yellow Dal Tadka', category: 'Veg Curry', price: 149, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Everyday comfort dal, tempered with cumin, garlic and dried red chillies.', image: '/images/Food/sadhya.jpeg' },
+
+    // ---------- EVENING SNACKS ----------
+    { id: 25, name: 'Paneer 65', category: 'Evening Snacks', price: 199, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: true, description: 'Crispy fried paneer cubes tossed in a fiery South Indian-style seasoning.', image: '/images/Food/pakodi.jpeg' },
+    { id: 26, name: 'Honey Chilli Potato', category: 'Evening Snacks', price: 159, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: true, description: 'Crispy fried potatoes glazed in a sweet-and-spicy honey chilli sauce.', image: '/images/Food/pakodi.jpeg' },
+    { id: 27, name: 'Chilli Paneer', category: 'Evening Snacks', price: 199, rating: 4.8, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: true, description: 'Wok-tossed paneer with onions, peppers and a bold chilli-garlic sauce.', image: '/images/Food/pakodi.jpeg' },
+    { id: 28, name: 'Mysore Pakoda (6 pcs)', category: 'Evening Snacks', price: 139, rating: 4.5, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Crunchy, spiced lentil fritters, a Mysore tea-time favourite.', image: '/images/Food/pakodi.jpeg' },
+    { id: 29, name: 'Veg Manchurian', category: 'Evening Snacks', price: 149, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: true, description: 'Crisp vegetable dumplings tossed in a tangy, garlicky Indo-Chinese sauce.', image: '/images/Food/pakodi.jpeg' },
+
+    // ---------- BIRYANI & RICE ----------
+    { id: 30, name: 'Dakshayani Special Kerala Biryani', category: 'Biryani & Rice', price: 199, rating: 4.9, isVeg: true, isChefSpecial: true, isPopular: true, isSpicy: true, description: 'Fragrant rice layered with vegetables, coconut and traditional Kerala spices.', image: '/images/Food/kerala_biryani.jpeg' },
+    { id: 31, name: 'Chettinad Biryani', category: 'Biryani & Rice', price: 189, rating: 4.8, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: true, description: 'A bold, spice-forward biryani built on freshly ground Chettinad masala and curry leaves.', image: '/images/Food/biryani.jpeg' },
+    { id: 32, name: 'Vegetable Hyderabadi Biryani', category: 'Biryani & Rice', price: 199, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: true, description: 'Dum-cooked basmati rice layered with yogurt-marinated vegetables, fried onions and mint.', image: '/images/Food/biryani.jpeg' },
+    { id: 33, name: 'Bisi Bele Bath', category: 'Biryani & Rice', price: 199, rating: 4.8, isVeg: true, isChefSpecial: true, isPopular: false, isSpicy: false, description: 'A traditional one-pot Karnataka rice dish, spiced, tangy and deeply comforting.', image: '/images/Food/lemon_rice.jpeg' },
+    { id: 34, name: 'Lemon Rice', category: 'Biryani & Rice', price: 169, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Fragrant rice tossed with fresh lemon juice, curry leaves and mild tempering.', image: '/images/Food/lemon_rice.jpeg' },
+    { id: 35, name: 'Curd Rice', category: 'Biryani & Rice', price: 159, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Soft-cooked rice mixed with yogurt and tempered with curry leaves and mustard seeds.', image: '/images/Food/upma.jpeg' },
+
+    // ---------- COMBOS ----------
+    { id: 36, name: 'Dakshayani Combo Special Plater', category: 'Combos', price: 249, rating: 4.8, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: false, description: 'Mini masala dosa, idli, mini uttapam and filter coffee — a little bit of everything on one plate.', image: '/images/Food/idli_dosa.jpeg' },
+    { id: 37, name: 'Masala Dosa + Idli + Filter Coffee', category: 'Combos', price: 229, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'A classic dosa and idli pairing, rounded off with a hot filter coffee.', image: '/images/Food/idli_dosa.jpeg' },
+    { id: 38, name: 'Classic Indian Breakfast', category: 'Combos', price: 149, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Fluffy deep-fried pooris served with spiced potato bhaji and masala chhach.', image: '/images/Food/bedmi_poori_bhaji.jpeg' },
+    { id: 39, name: 'Dakshayani Special Chhole Bhatoore', category: 'Combos', price: 169, rating: 4.8, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: true, description: 'Soft, puffed bhature paired with tangy spiced chickpea curry — a hearty North Indian favourite.', image: '/images/Food/chola.jpeg' },
+
+    // ---------- BREADS ----------
+    { id: 40, name: 'Malabar Parantha (2 pcs)', category: 'Breads', price: 49, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Flaky, layered flatbread, best paired with any of our curries.', image: '/images/Food/malabar_prantha.jpeg' },
+    { id: 41, name: 'Tawa Butter Roti', category: 'Breads', price: 20, rating: 4.5, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Whole wheat flatbread cooked on a tawa and finished with butter.', image: '/images/Food/parotta.jpeg' },
+    { id: 42, name: 'Papad', category: 'Breads', price: 20, rating: 4.4, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Thin, crisp lentil wafer, roasted or fried.', image: '/images/Food/parotta.jpeg' },
+
+    // ---------- DESSERT ----------
+    { id: 43, name: 'Dakshayani Special Kheer', category: 'Dessert', price: 79, rating: 4.8, isVeg: true, isChefSpecial: true, isPopular: false, isSpicy: false, description: 'Our house rice pudding, slow-simmered with milk and finished with cardamom.', image: '/images/Food/kheer.jpeg' },
+    { id: 44, name: 'Rava Keshri', category: 'Dessert', price: 79, rating: 4.8, isVeg: true, isChefSpecial: true, isPopular: false, isSpicy: false, description: 'Warm semolina pudding infused with saffron, ghee, cardamom and roasted cashews.', image: '/images/Food/kheer2.jpeg' },
+    { id: 45, name: 'Gulab Jamun', category: 'Dessert', price: 35, rating: 4.7, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: false, description: 'Soft milk-solid dumplings soaked in warm, fragrant sugar syrup.', image: '/images/Food/kheer2.jpeg' },
+    { id: 46, name: 'Payasam', category: 'Dessert', price: 99, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'A traditional South Indian sweet pudding, simmered slow and finished with nuts.', image: '/images/Food/kheer.jpeg' },
+
+    // ---------- BEVERAGES ----------
+    { id: 47, name: 'Filter Coffee', category: 'Beverages', price: 69, rating: 4.9, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: false, description: 'Strong, frothy decoction coffee, brewed the traditional way and served in a classic steel tumbler.', image: '/images/Food/filter_coffee.jpeg' },
+    { id: 48, name: 'Masala Chai', category: 'Beverages', price: 55, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'Classic Indian tea, brewed strong with warm aromatic spices.', image: '/images/Food/filter_coffee.jpeg' },
+    { id: 49, name: 'Mango Lassi', category: 'Beverages', price: 99, rating: 4.8, isVeg: true, isChefSpecial: false, isPopular: true, isSpicy: false, description: 'A thick, chilled yogurt drink blended with sweet mango.', image: '/images/Food/filter_coffee.jpeg' },
+    { id: 50, name: 'Fresh Lime Soda', category: 'Beverages', price: 89, rating: 4.6, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: false, description: 'A refreshing citrus soda, sweet or salted, over ice.', image: '/images/Food/filter_coffee.jpeg' },
+    { id: 51, name: 'Rasam Shot', category: 'Beverages', price: 59, rating: 4.5, isVeg: true, isChefSpecial: false, isPopular: false, isSpicy: true, description: 'A tangy, pepper-spiced rasam served as a warming digestive shot.', image: '/images/Food/sambar_vada.jpeg' }
+  ];
+
+  // Fallback handler if any local image fails to load
+  const handleImgError = (e) => {
+    e.currentTarget.onerror = null;
+    e.currentTarget.style.display = 'none';
+    e.currentTarget.parentElement.style.background = 'linear-gradient(135deg,#3a2416,#1c130c)';
+  };
 
   // Popular Dishes Subset
   const popularDishes = menuItems.filter((item) => item.isPopular);
@@ -148,10 +126,10 @@ const OurMenu = () => {
   // Filtered Main List
   const filteredItems = menuItems.filter((item) => {
     const matchesCategory = activeCategory === 'All' || item.category === activeCategory;
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           item.description.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesVeg = filterVegOnly ? item.isVeg : true;
-    
+
     let matchesQuickFilter = true;
     if (quickFilter === 'Popular') matchesQuickFilter = item.isPopular;
     if (quickFilter === 'Spicy') matchesQuickFilter = item.isSpicy;
@@ -161,8 +139,8 @@ const OurMenu = () => {
 
   return (
     <section id="menu" className="bg-white text-black py-16 md:py-24">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 space-y-16">
-        
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 space-y-16">
+
         {/* Header Section */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200">
@@ -181,7 +159,7 @@ const OurMenu = () => {
           </p>
         </div>
 
-        {/* 🌟 MOST POPULAR DISHES SPOTLIGHT SECTION */}
+        {/* Most Popular Dishes Spotlight */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -202,7 +180,7 @@ const OurMenu = () => {
               >
                 <div className="space-y-3">
                   <div className="relative h-36 rounded overflow-hidden">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                    <img src={item.image} alt={item.name} onError={handleImgError} className="w-full h-full object-cover" />
                     <span className="absolute top-2 right-2 bg-black/70 backdrop-blur-md text-amber-300 text-[10px] font-black uppercase px-2.5 py-1 rounded-full flex items-center gap-1">
                       <Star className="w-3 h-3 fill-amber-300 text-amber-300" />
                       {item.rating}
@@ -235,7 +213,7 @@ const OurMenu = () => {
         {/* Filters & Search Controls */}
         <div className="space-y-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-gray-50 p-4 rounded-xl border border-gray-100">
-            
+
             {/* Search Box */}
             <div className="relative w-full md:w-80">
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -268,8 +246,8 @@ const OurMenu = () => {
               <button
                 onClick={() => setFilterVegOnly(!filterVegOnly)}
                 className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all duration-300 border ${
-                  filterVegOnly 
-                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-md' 
+                  filterVegOnly
+                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-md'
                     : 'bg-white text-gray-700 border-gray-200 hover:border-emerald-600'
                 }`}
               >
@@ -322,6 +300,7 @@ const OurMenu = () => {
                     <img
                       src={item.image}
                       alt={item.name}
+                      onError={handleImgError}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
 

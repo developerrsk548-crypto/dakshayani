@@ -17,7 +17,7 @@ const AboutUs = () => {
 
   return (
     <section className="bg-white text-black py-16 md:py-24 overflow-hidden">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 space-y-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 space-y-20">
         
         {/* Top Hero Grid Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -72,7 +72,7 @@ const AboutUs = () => {
             <div className="relative z-10 grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <img
-                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+                  src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWndqFIi4-rJber4d8bhC5KU7ZlnAVz3pGplnPLPYRWMoC1Ki6xfu2Bl9F5YLGozow-YM7vdrbWndBmqyuhvdDsN3RGrfusFiQGHqcS_cZw4P9XpqFJfz5uz5xqvxxpO0__uDVYJQ4f7oZD3=s1360-w1360-h1020-rw"
                   alt="Restaurant Dining Area"
                   className="w-full h-64 sm:h-80 object-cover rounded-2xl shadow-md border border-gray-100"
                 />

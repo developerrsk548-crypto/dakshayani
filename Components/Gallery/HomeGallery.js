@@ -11,39 +11,63 @@ const previewImages = [
         id: 1,
         alt: 'Mysore Masala Dosa',
         ratio: '3 / 4',
-        image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Food/lemon_rice.jpeg'
     },
     {
         id: 2,
         alt: 'Restaurant seating area',
         ratio: '4 / 5',
-        image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Food/filter_coffee.jpeg' 
     },
     {
         id: 3,
         alt: 'Idli sambar and chutney',
         ratio: '1 / 1',
-        image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Food/idli4.jpeg'
     },
     {
         id: 4,
         alt: 'Slow-cooked paneer curry',
         ratio: '3 / 4',
-        image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Food/chola.jpeg'
     },
     {
         id: 5,
         alt: 'Warm dining ambience',
         ratio: '9 / 16',
-        image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Food/sambar_vada.jpeg'
     },
     {
         id: 6,
         alt: 'Veg biryani served hot',
         ratio: '1 / 1',
-        image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80'
+        image: '/images/Food/bedmi_poori_bhaji.jpeg'
     }
 ];
+
+// {
+//         id: 1,
+//         alt: 'Mysore Masala Dosa',
+//         ratio: '3 / 4',
+//         image: '/images/Food/dosa2.jpeg'
+//     },
+//     {
+//         id: 2,
+//         alt: 'Idli sambar and chutney',
+//         ratio: '1 / 1',
+//         image: '/images/Food/idli1.jpeg'
+//     },
+//     {
+//         id: 3,
+//         alt: 'Slow-cooked paneer curry',
+//         ratio: '3 / 4',
+//         image: '/images/Food/sadhya.jpeg'
+//     },
+//     {
+//         id: 4,
+//         alt: 'Veg biryani served hot',
+//         ratio: '1 / 1',
+//         image: '/images/Food/biryani.jpeg'
 
 const HomeGallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);

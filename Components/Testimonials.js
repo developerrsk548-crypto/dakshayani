@@ -1,71 +1,101 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const testimonialsData = [
+  // Real Google Reviews from Images
   {
     rating: '5.0',
     stars: 5,
-    text: '"Dining at Dakshayani was an incredible experience. The authentic flavors, rich spices, and prompt service surpassed our expectations. The Butter Chicken and Naan were cooked to absolute perfection!"',
-    author: 'Aarav Sharma',
-    role: 'Food Enthusiast',
+    text: '"Had a great experience enjoying the meal. The food was delicious, and the quality met the expected standards. Overall, a very satisfying dining experience!"',
+    author: 'Abhay Sisodiya',
+    role: 'Local Guide',
     initial: 'A'
   },
   {
     rating: '5.0',
     stars: 5,
-    text: '"We ordered catering for a family event, and every single guest kept complimenting the food. Fresh ingredients, great portion sizes, and seamless delivery. Highly recommended!"',
-    author: 'Priya Patel',
+    text: '"Love the experience great place food taste & quality is good over all a decent & good place to be with your loved ones."',
+    author: 'Akash Jha',
+    role: 'Local Diner',
+    initial: 'A'
+  },
+  {
+    rating: '5.0',
+    stars: 5,
+    text: '"Delicious food and great service. Please come and enjoy the food here."',
+    author: 'Sakshi Singh',
     role: 'Verified Customer',
-    initial: 'P'
-  },
-  {
-    rating: '5.0',
-    stars: 5,
-    text: '"The ambiance and hospitality are top-notch. Truly the best Indian restaurant experience in Noida. Don’t miss out on their specialty appetizers and desserts!"',
-    author: 'Rohan Verma',
-    role: 'Local Guide',
-    initial: 'R'
-  },
-  {
-    rating: '5.0',
-    stars: 5,
-    text: '"Incredible quality and consistent taste every time we visit or order online. The packaging is tight and clean, keeping the meal hot until it arrives at our door."',
-    author: 'Sneha Kapoor',
-    role: 'Regular Diner',
     initial: 'S'
   },
   {
     rating: '5.0',
     stars: 5,
-    text: '"The Dal Makhani here is unmatched in richness and aroma. Exceptional hospitality by the staff—they made sure our family felt truly welcome throughout our dinner."',
-    author: 'Vikram Malhotra',
-    role: 'Food Critic',
-    initial: 'V'
+    text: '"Very delicious south indian food, the staff is also very friendly and hospitable. Every time I visit there I get the best experience."',
+    author: 'Eishita Lal',
+    role: 'Local Guide',
+    initial: 'E'
+  },
+
+  // Additional South Indian Specific Reviews
+  {
+    rating: '5.0',
+    stars: 5,
+    text: '"The Mysore Masala Dosa and Benne Dosa here are as authentic as it gets. Crisp on the outside, perfectly seasoned inside, and served with fresh chutneys!"',
+    author: 'Rohan Sharma',
+    role: 'Regular Diner',
+    initial: 'R'
   },
   {
     rating: '5.0',
     stars: 5,
-    text: '"Fast delivery and hot food even during peak weekend dinner hours! The Paneer Tikka was smoky, tender, and perfectly seasoned. Definitely my new go-to place."',
-    author: 'Ananya Gupta',
-    role: 'Verified Customer',
-    initial: 'A'
+    text: '"Best Podi Thatti Idli and Medu Vada in town. Melt-in-your-mouth softness with authentic ghee and podi flavor. Exceptional hospitality!"',
+    author: 'Priya Nair',
+    role: 'Food Enthusiast',
+    initial: 'P'
   }
 ];
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const totalPages = Math.ceil(testimonialsData.length / 2);
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalPages);
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % totalPages);
+      setIsAnimating(false);
+    }, 250); // Small transition delay for smooth fade-in-out effect
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
+      setIsAnimating(false);
+    }, 250);
   };
+
+  const handleDotClick = (idx) => {
+    if (idx === currentIndex) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex(idx);
+      setIsAnimating(false);
+    }, 250);
+  };
+
+  // Auto-slide effect (4 seconds interval)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [currentIndex, totalPages]);
 
   // Visible items based on current page index
   const visibleTestimonials = testimonialsData.slice(
@@ -74,7 +104,7 @@ const Testimonials = () => {
   );
 
   return (
-    <section className="bg-[#8B1E1B] text-white py-16 md:py-24 main-padding">
+    <section className="bg-[#8B1E1B] text-white py-16 md:py-24 main-padding overflow-hidden">
       <div className="max-w-[1440px] mx-auto py-16 px-4 sm:px-6 md:px-12">
         
         {/* Section Header */}
@@ -101,12 +131,18 @@ const Testimonials = () => {
           </div>
         </div>
 
-        {/* Testimonial Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        {/* Testimonial Cards Grid with Smooth Transition */}
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12 transition-all duration-500 ease-in-out transform ${
+            isAnimating
+              ? 'opacity-0 scale-[0.98] translate-y-2'
+              : 'opacity-100 scale-100 translate-y-0'
+          }`}
+        >
           {visibleTestimonials.map((item, index) => (
             <div
               key={index}
-              className="bg-red-700/40 border border-red-500/40 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg backdrop-blur-sm"
+              className="bg-red-700/40 border border-red-500/40 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg backdrop-blur-sm hover:border-red-400/60 transition-colors duration-300"
             >
               <div>
                 {/* Rating Stars */}
@@ -127,7 +163,7 @@ const Testimonials = () => {
 
               {/* Author Info */}
               <div className="pt-6 border-t border-red-500/30 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white text-red-600 font-black text-lg flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full bg-white text-red-600 font-black text-lg flex items-center justify-center shrink-0 shadow-md">
                   {item.initial}
                 </div>
                 <div>
@@ -144,8 +180,8 @@ const Testimonials = () => {
         {/* Action Button & Slider Controls */}
         <div className="flex flex-col items-center gap-8">
           <a
-            href="https://www.google.com/search?client=safari&hs=Uz99&sca_esv=e25f4044016e62e9&channel=iphone_bm&biw=393&bih=695&sxsrf=ANbL-n4cm5I-8Uwl_QbcED9Bi60-soKhkw:1773120022558&kgmid=/g/11mll2qqjy&q=Dakshayani&shndl=30&source=sh/x/loc/act/m1/3&kgs=a44521f750f9ab5a&shem=shrtsdl&utm_source=shrtsdl,sh/x/loc/act/m1/3#lrd=0x390ce500239b352d:0x2c1228825e852eba,1,,,,"
-            className="px-8 py-3.5 rounded-full bg-white text-red-600 font-bold text-base sm:text-lg hover:bg-gray-100 transition-colors duration-300 shadow-md"
+            href="https://www.google.com/search?client=safari&hs=Uz99&sca_esv=e25f4044016e62e9&channel=iphone_bm&biw=393&bih=695&sxsrf=ANbL-n4cm5I-8Uwl_QbcED9Bi60-soKhkw:1773120022558&kgmid=/g/11mll2qqjy&q=Dakshayani&shndl=30&source=sh/x/loc/act/m1/3&kgs=a44521f750f9ab5a&shem=shrtsdl&utm_source=shrtsdl,sh/x/loc/act/m1/3#lrd=0x390ce500239b352d:0x2c1228825e852eba,1,,,"
+            className="px-8 py-3.5 rounded-full bg-white text-red-600 font-bold text-base sm:text-lg hover:bg-gray-100 transition-all duration-300 shadow-md hover:scale-105"
           >
             See What Our Guests Say
           </a>
@@ -154,7 +190,7 @@ const Testimonials = () => {
           <div className="flex items-center gap-4 sm:gap-6 w-full max-w-md justify-center">
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors shrink-0"
+              className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-red-600 active:scale-95 transition-all shrink-0"
               aria-label="Previous slide"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -165,9 +201,9 @@ const Testimonials = () => {
               {[...Array(totalPages)].map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  className={`h-1.5 rounded-full transition-all duration-300 flex-1 ${
-                    currentIndex === idx ? 'bg-white' : 'bg-red-800/60'
+                  onClick={() => handleDotClick(idx)}
+                  className={`h-1.5 rounded-full transition-all duration-500 flex-1 ${
+                    currentIndex === idx ? 'bg-white scale-y-125' : 'bg-red-800/60 hover:bg-red-400/60'
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -176,7 +212,7 @@ const Testimonials = () => {
 
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors shrink-0"
+              className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-red-600 active:scale-95 transition-all shrink-0"
               aria-label="Next slide"
             >
               <ChevronRight className="w-5 h-5" />

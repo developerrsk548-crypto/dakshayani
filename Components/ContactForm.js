@@ -10,25 +10,23 @@ const FacebookIcon = () => (
   </svg>
 );
 
-const LinkedinIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect x="2" y="9" width="4" height="12" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
-
-const TwitterIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-  </svg>
-);
-
 const InstagramIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const ZomatoIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21.579 5.867A1.564 1.564 0 0 0 20.45 5.4H3.55a1.564 1.564 0 0 0-1.129.467A1.562 1.562 0 0 0 1.954 7v10c0 .416.166.814.467 1.129.315.315.713.471 1.129.471h16.9a1.564 1.564 0 0 0 1.129-.471A1.564 1.564 0 0 0 22.046 17V7c0-.416-.166-.814-.467-1.133zm-4.708 3.093-5.263 5.345h4.945v1.667H9.284v-1.667l5.263-5.345H9.602V7.293h7.269v1.667z" />
+  </svg>
+);
+
+const SwiggyIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.04 4.544c1.942 0 3.738.79 5.034 2.069a.9.9 0 0 1-.035 1.306.9.9 0 0 1-1.272-.036 5.32 5.32 0 0 0-3.727-1.539 5.352 5.352 0 0 0-5.347 5.347c0 1.591.685 3.023 1.777 4.02l.006.006c.01.009.02.018.03.027l4.088 3.712a.9.9 0 0 1 .054 1.271.9.9 0 0 1-1.271.054l-4.088-3.712a.9.9 0 0 1-.059-.059A7.126 7.126 0 0 1 4.887 11.7c0-3.956 3.208-7.156 7.153-7.156z" />
   </svg>
 );
 
@@ -54,7 +52,7 @@ const ContactForm = () => {
 
   return (
     <section className="bg-white text-black py-16 md:py-24">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column - Contact Info */}
@@ -99,33 +97,41 @@ const ContactForm = () => {
             {/* Social Icons */}
             <div className="pt-4 flex items-center gap-3">
               <a
-                href="#"
+                href="https://www.facebook.com/p/Dakshayani-restaurant-100091418854884/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
               </a>
               <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <LinkedinIcon />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <TwitterIcon />
-              </a>
-              <a
-                href="#"
+                href="https://www.instagram.com/dakshayani_noida/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
               </a>
+              {/* <a
+                href="https://www.zomato.com/ncr/dakshini-south-indian-kitchen-sector-63-noida/order"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300"
+                aria-label="Zomato"
+              >
+                <ZomatoIcon />
+              </a>
+              <a
+                href="https://www.swiggy.com/city/noida-1/dakshayani-sector-64-rest1378036"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300"
+                aria-label="Swiggy"
+              >
+                <SwiggyIcon />
+              </a> */}
             </div>
 
           </div>
