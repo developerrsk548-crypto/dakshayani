@@ -13,15 +13,24 @@ import { motion } from "framer-motion";
  * variables — this avoids a render-blocking font request.
  */
 
-// Brand Color Palette (Dakshayani — dark/gold theme)
-const BG = "#211009";
-const GOLD = "#d6a44e";
-const GOLD_DIM = "#8a6a35";
-const SPICE = "#c14a35";
-const CREAM = "#f4e9d8";
-const CREAM_DIM = "#c9b79c";
-const LEAF = "#6b8a55";
-const RULE = "rgba(214,164,78,0.28)";
+// Background Red ko thoda dark aur rich banaya hai contrast badhane ke liye
+const BG = "#7A0C08"; 
+
+// Main Titles & Headers ke liye Bright Gold/Yellow
+const GOLD = "#FFD700"; 
+const GOLD_DIM = "#F2C94C";
+
+// Accent colors
+const SPICE = "#FF6B4A";
+
+// Sabse IMP Change: Text & Items Description ke liye Light Cream/White colors
+// Isse sare menu items aur prices Moti (Bold) aur ekdum saaf dikhenge
+const CREAM = "#FFFFFF";       // Pure White (Sabse saaf padhne ke liye)
+const CREAM_DIM = "#FFF8E7";   // Soft Warm White (Descriptions ke liye)
+const LEAF = "#9EE066";
+
+// Lines / Dividers ke liye clear border
+const RULE = "rgba(255, 255, 255, 0.2)";
 
 const CATEGORIES = [
   {

@@ -47,7 +47,24 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Reservation Submitted:', formData);
+
+    // Restaurant WhatsApp Number
+    const whatsappNumber = '918860113366';
+
+    // Format WhatsApp Message
+    const message = `*New Table Reservation Request* 🍽️\n\n` +
+      `*Name: * ${formData.fullName}\n` +
+      `*Phone: * ${formData.phone}\n` +
+      `*Email: * ${formData.email}\n` +
+      `*Guests: * ${formData.guests}\n` +
+      `*Date: * ${formData.date}\n` +
+      `*Time: * ${formData.time}\n` +
+      `*Special Requests: * ${formData.message || 'N/A'}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -220,6 +237,7 @@ const ContactForm = () => {
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-black focus:outline-none focus:border-red-600 focus:bg-white transition-all duration-200"
                   />
                 </div>
@@ -233,6 +251,7 @@ const ContactForm = () => {
                     name="time"
                     value={formData.time}
                     onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-black focus:outline-none focus:border-red-600 focus:bg-white transition-all duration-200"
                   />
                 </div>
